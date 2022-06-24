@@ -1,6 +1,11 @@
 const express = require("express");
 const app = express();
 const routerApi = require("./routes");
+const {
+  logError,
+  errorHandler,
+  boomErrorHandler,
+} = require("./middlewares/errorHandler");
 
 const PORT = process.env.PORT || 8080;
 
@@ -10,6 +15,10 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static(__dirname + "/public"));
 //conf del ruteo
 routerApi(app);
+// confirucaion de middleware
+app.use(logError);
+app.use(boomErrorHandler);
+app.use(logError);
 
 app.use("/", (req, res) => {
   res.sendFile(__dirname + "/public/index.html");
