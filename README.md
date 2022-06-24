@@ -5,8 +5,8 @@ Aplicación eCommerce Backend, que implementa un servidor de aplicación basado 
 Aspectos del entregable:
 
 1. El router base _'/api/productos'_ implementará cuatro funcionalidades:
-   `GET: '/:id?'` - Me permite listar todos los productos disponibles ó un producto por su id (disponible para usuarios y administradores)
-   `POST: '/' ` - Para incorporar productos al listado (disponible para administradores)
+   + `GET: '/:id?'` - Me permite listar todos los productos disponibles ó un producto por su id (disponible para usuarios y administradores)
+   + `POST: '/' ` - Para incorporar productos al listado (disponible para administradores)
    `PUT: '/:id'` - Actualiza un producto por su id (disponible para administradores)
    `DELETE: '/:id'` - Borra un producto por su id (disponible para administradores)
 
