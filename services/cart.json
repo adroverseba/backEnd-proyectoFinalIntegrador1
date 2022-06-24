@@ -1,0 +1,41 @@
+[
+  {
+    "id": "2bb655d6-76a8-4e64-bc9c-4f46ec09b3e1",
+    "timestamp": 1656015994938,
+    "productos": [
+      {
+        "productName": "cafetera macaco",
+        "timestamp": 1656033540851,
+        "description": "Cafetera domestica de filtro",
+        "code": "xb4577",
+        "price": 3000,
+        "stock": 54,
+        "thumbnail": "https://www.cetrogar.com.ar/media/catalog/product/e/d/ed4274_-1.jpg?width=500&height=500&canvas=500,500&quality=80&bg-color=255,255,255&fit=bounds"
+      },
+      {
+        "productName": "Turbo cafetera master 3000Rx",
+        "timestamp": 1656033636596,
+        "description": "Cafetera profesional",
+        "code": "xb49996",
+        "price": 50000,
+        "stock": 3,
+        "thumbnail": "https://www.cetrogar.com.ar/media/catalog/product/e/d/ed4274_-1.jpg?width=500&height=500&canvas=500,500&quality=80&bg-color=255,255,255&fit=bounds"
+      }
+    ]
+  },
+  {
+    "id": "d8bb2798-f9cc-481d-8a2e-a17f993161e4",
+    "timestamp": 1656016046959,
+    "productos": []
+  },
+  {
+    "id": "15f56943-d598-4d56-981a-6635adedc9d3",
+    "timestamp": 1656017919401,
+    "productos": []
+  },
+  {
+    "id": "3144c96f-f5f4-4c49-ad7a-5d3ca7d1c11e",
+    "timestamp": 1656034707772,
+    "productos": []
+  }
+]
