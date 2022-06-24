@@ -2,8 +2,9 @@
 
 Aplicación eCommerce Backend, que implementa un servidor de aplicación basado en la plataforma **Node.js** y el módulo **express**. El servidor implementará dos conjuntos de rutas agrupadas en routers, uno con la url base _'/productos'_ y el otro con _'/carrito'_. El puerto de escucha será el 8080 para desarrollo y process.env.PORT para producción en glitch.com
 
-1. Aspectos del entregable:
-   El router base _'/api/productos'_ implementará cuatro funcionalidades:
+Aspectos del entregable:
+
+1. El router base _'/api/productos'_ implementará cuatro funcionalidades:
    `GET: '/:id?'` - Me permite listar todos los productos disponibles ó un producto por su id (disponible para usuarios y administradores)
    `POST: '/' ` - Para incorporar productos al listado (disponible para administradores)
    `PUT: '/:id'` - Actualiza un producto por su id (disponible para administradores)
