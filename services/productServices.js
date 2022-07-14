@@ -1,4 +1,5 @@
 const fs = require("fs");
+const { models } = require("../libs/sequelize");
 
 class Container {
   constructor({ fileName }) {

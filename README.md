@@ -19,4 +19,4 @@ Aspectos del entregable:
    - ` POST: '/:id/productos'` - Para incorporar productos al carrito por su id de producto
    - ` DELETE: '/:id/productos/:id_prod'` - Eliminar un producto del carrito por su id de carrito y de producto
 
-3. Crear una variable booleana administrador, cuyo valor configuraremos más adelante con el sistema de login. Según su valor (true ó false) me permitirá alcanzar o no las rutas indicadas. En el caso de recibir un request a una ruta no permitida por el perfil, devolver un objeto de error. Ejemplo: { error : -1, descripcion: ruta 'x' método 'y' no autorizada }
+3. Crear una variable booleana administrador, cuyo valor configuraremos más adelante con el sistema de _login_. Según su valor (true ó false) me permitirá alcanzar o no las rutas indicadas. En el caso de recibir un request a una ruta no permitida por el perfil, devolver un objeto de error. Ejemplo: { error : -1, descripcion: ruta 'x' método 'y' no autorizada }
