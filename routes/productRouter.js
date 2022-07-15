@@ -1,42 +1,56 @@
 const router = require("express").Router();
-const Container = require("../services/productServices");
-const contenedor = new Container({ fileName: "products" });
+const ProductService = require("../services/productServices");
+const service = new ProductService();
 
 router.get("/", (req, res) => {
-  contenedor.getAll().then((prod) => res.json(prod));
+  service.getAll().then((prod) => res.json(prod));
 });
 
-router.get("/:id", (req, res) => {
-  const id = req.params.id;
-  contenedor.getById(id).then((prod) => {
-    res.send(prod);
-  });
+router.get("/:id", async (req, res, next) => {
+  try {
+    const { id } = req.params;
+    const product = await service.getById(id);
+    res.json(product);
+  } catch (error) {
+    next(error);
+  }
 });
 
 router.post("/", (req, res) => {
   const newProduct = req.body;
-  contenedor.save(newProduct).then((prod) => res.send({ message: prod }));
+  service.save(newProduct).then((prod) => res.send({ message: prod }));
 });
 
-router.put("/:id", (req, res) => {
-  const { id } = req.params;
-  const product = req.body;
-  contenedor.update();
+//TODO: verificar actualizacion por metodo put
+// router.put("/:id", async (req, res,next) => {
+//   try {
+//     const { id } = req.params;
+//     const product = req.body;
+//     const category = await service.update(id, product);
+//     res.status(200).json(category);
+//   } catch (error) {
+//     next(error);
+//   }
+// });
+
+router.patch("/:id", async (req, res, next) => {
+  try {
+    const { id } = req.params;
+    const product = req.body;
+    const category = await service.modifyById(id, product);
+    res.status(200).json(category);
+  } catch (error) {
+    next(error);
+  }
 });
 
-router.patch("/:id", (req, res) => {
-  const { id } = req.params;
-  const product = req.body;
-  contenedor
-    .modifyById(id, product)
-    .then((prod) => res.send(prod))
-    .catch();
-});
-
-router.delete("/:id", (req, res) => {
-  const id = req.params.id;
-  contenedor.deleteById(id).then((prod) => {
-    res.send(prod);
-  });
+router.delete("/:id", async (req, res, next) => {
+  try {
+    const { id } = req.params;
+    await service.deleteById(id);
+    res.status(200).json({ id });
+  } catch (error) {
+    next(error);
+  }
 });
 module.exports = router;

@@ -1,31 +1,21 @@
 const fs = require("fs");
 const { v4: uuidv4 } = require("uuid");
 const boom = require("@hapi/boom");
+const mongoose = require("mongoose");
+const cartModel = require("../db/models/cartModel");
 
-class Cart {
-  constructor(fileName) {
-    this.fileName = fileName;
-  }
+class CartService {
+  constructor() {}
 
-  createCart() {
-    try {
-      const cartList = JSON.parse(
-        fs.readFileSync(`./services/${this.fileName}.json`, "utf-8")
-      );
-      const newCart = {
-        id: uuidv4(),
-        timestamp: Date.now(),
-        productos: [],
-      };
-      cartList.push(newCart);
-      fs.writeFileSync(
-        `./services/${this.fileName}.json`,
-        JSON.stringify(cartList, null, 2)
-      );
-      return newCart.id;
-    } catch (error) {
-      console.log(error);
-    }
+  async createCart() {
+    const id = uuidv4();
+    const cartToSave = new cartModel({
+      _id: id,
+      timestamp: Date.now(),
+      productos: [],
+    });
+    await cartToSave.save();
+    return { id };
   }
 
   deleteById(id) {
@@ -44,30 +34,28 @@ class Cart {
     return cartList;
   }
 
-  getProductsCart(idCart) {
-    const cartList = JSON.parse(
-      fs.readFileSync(`./services/${this.fileName}.json`, "utf-8")
-    );
-    const cartIndex = cartList.findIndex((cart) => cart.id == idCart);
-    if (cartIndex == -1) {
-      throw boom.notFound("Product not Found");
+  async getProductsCart(idCart) {
+    const result = await cartModel.findOne({ _id: idCart });
+    if (!result) {
+      throw boom.notFound("Cart not Found");
     }
-    const product = cartList[cartIndex].productos;
+    if (result.products.length == 0) {
+      return { message: "the cart is empty" };
+    }
+    const product = result.products;
     return product;
   }
 
-  addProductCart(idCart, product) {
-    const cartList = JSON.parse(
-      fs.readFileSync(`./services/${this.fileName}.json`, "utf-8")
+  async addProductCart(idCart, product) {
+    const result = await cartModel.findOne({ _id: idCart });
+    if (!result) {
+      throw boom.notFound("cart not found");
+    }
+    await cartModel.updateOne(
+      { _id: idCart },
+      { $push: { products: product } }
     );
-    const cartIndex = cartList.findIndex((cart) => cart.id === idCart);
-    product.timestamp = Date.now();
-    cartList[cartIndex].productos.push(product);
-    fs.writeFileSync(
-      `./services/${this.fileName}.json`,
-      JSON.stringify(cartList, null, 2)
-    );
-    return cartList;
+    return result.products;
   }
 
   deleteProductCart(id, id_prod) {
@@ -93,4 +81,4 @@ class Cart {
   }
 }
 
-module.exports = Cart;
+module.exports = CartService;

@@ -37,7 +37,7 @@ class Product extends Model {
       sequelize,
       tableName: PRODUCT_TABLE,
       modelName: "Product", //lo dejo con el mismo nombre de la clase
-      timestamp: false,
+      timestamps: false,
     };
   }
 }

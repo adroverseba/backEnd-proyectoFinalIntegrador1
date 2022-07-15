@@ -1,30 +1,26 @@
 [
   {
-    "productName": "cafetera macaco",
-    "timestamp": "esto hacerlo con logica de progranacion ",
-    "description": "Cafetera domestica de filtro",
-    "code": "xb4577",
-    "price": 3000,
-    "stock": 54,
-    "thumbnail": "https://www.cetrogar.com.ar/media/catalog/product/e/d/ed4274_-1.jpg?width=500&height=500&canvas=500,500&quality=80&bg-color=255,255,255&fit=bounds",
-    "id": 1
-  },
-  {
-    "productName": "LAVARROPAS AUTOMATICO WHIRLPOOL",
-    "price": 59999,
-    "thumbnail": "http://medias.musimundo.com/medias/00317203-140724-140724-01-140724-01.jpg-size515?context=bWFzdGVyfGltYWdlc3wzOTQxM3xpbWFnZS9qcGVnfGgxNC9oZmEvMTAzOTA4NDY3MDE1OTgvMDAzMTcyMDMtMTQwNzI0LTE0MDcyNF8wMS0xNDA3MjRfMDEuanBnX3NpemU1MTV8NjZhNjk4ZmI1ZTAzOGRjYzc4NzM2OTcyMmMzZTg0NGZjMTNmZTYxNjI2OTM5YWFhYWYwYjNiY2I3OGUyNGRmOQ",
-    "id": 2
-  },
-  {
+    "id": 2,
     "productName": "Smart TV 32 Philco",
     "price": 38500,
-    "thumbnail": "https://www.cetrogar.com.ar/media/catalog/product/p/l/pld32hs22.jpg?quality=80&bg-color=255,255,255&fit=bounds&height=&width=&canvas=:",
-    "id": 3
+    "thumbnail": "https://www.cetrogar.com.ar/media/catalog/product/p/l/pld32hs22.jpg?quality=80&bg-color=255,255,255&fit=bounds&height=&width=&canvas=:"
   },
   {
+    "id": 3,
     "productName": "cafetera philips",
     "price": 3000,
-    "thumbnail": "https://www.cetrogar.com.ar/media/catalog/product/e/d/ed4274_-1.jpg?width=500&height=500&canvas=500,500&quality=80&bg-color=255,255,255&fit=bounds",
-    "id": 4
+    "thumbnail": "https://www.cetrogar.com.ar/media/catalog/product/e/d/ed4274_-1.jpg?width=500&height=500&canvas=500,500&quality=80&bg-color=255,255,255&fit=bounds"
+  },
+  {
+    "id": 4,
+    "productName": "joystick xbox one white",
+    "price": 12000,
+    "thumbnail": "https://metajuego1.com/assets/uploads/product_eDomZEXWszaMnOIq6R8u.jpg"
+  },
+  {
+    "id": 1,
+    "productName": "LAVARROPAS AUTOMATICO WHIRLPOOL",
+    "price": 79999,
+    "thumbnail": "https://www.amahogar.com.ar/3975-medium_default/lavarropas-whirlpool-wlc85b-85-kgs-c-froblco-1400rpm.jpg"
   }
 ]
