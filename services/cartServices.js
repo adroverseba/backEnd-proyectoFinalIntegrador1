@@ -36,6 +36,7 @@ class CartService {
 
   async getProductsCart(idCart) {
     const result = await cartModel.findOne({ _id: idCart });
+    // const result = await model.cartModel.updateOne
     if (!result) {
       throw boom.notFound("Cart not Found");
     }
@@ -55,29 +56,35 @@ class CartService {
       { _id: idCart },
       { $push: { products: product } }
     );
-    return result.products;
+    return product;
   }
 
-  deleteProductCart(id, id_prod) {
-    const read = JSON.parse(
-      fs.readFileSync(`./services/${this.fileName}.json`, "utf-8")
+  async deleteProductCart(idCart, id_prod) {
+    const rta = await cartModel.updateOne(
+      { _id: idCart },
+      {
+        $pull: { products: { id: id_prod } },
+      }
     );
-    const cartIndex = read.findIndex((prod) => prod.id == id);
-    if (cartIndex == -1) {
-      throw boom.notFound("cart not found");
-    }
-    const products = this.getProductsCart(id);
-    const prodIndex = products.findIndex((prod) => prod.id == id_prod);
-    if (prodIndex == -1) {
-      throw boom.notFound("product not found");
-    }
-    products.splice(prodIndex, 1);
-    read[cartIndex].productos = products;
-    fs.writeFileSync(
-      `./services/${this.fileName}.json`,
-      JSON.stringify(read, null, 2)
-    );
-    return read;
+    // if (condition) {
+    // }
+
+    // const cartIndex = read.findIndex((prod) => prod.id == id);
+    // if (cartIndex == -1) {
+    //   throw boom.notFound("cart not found");
+    // }
+    // const products = this.getProductsCart(id);
+    // const prodIndex = products.findIndex((prod) => prod.id == id_prod);
+    // if (prodIndex == -1) {
+    //   throw boom.notFound("product not found");
+    // }
+    // products.splice(prodIndex, 1);
+    // read[cartIndex].productos = products;
+    // fs.writeFileSync(
+    //   `./services/${this.fileName}.json`,
+    //   JSON.stringify(read, null, 2)
+    // );
+    return rta;
   }
 }
 

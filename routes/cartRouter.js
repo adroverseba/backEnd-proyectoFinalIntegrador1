@@ -42,10 +42,10 @@ router.post("/:id/productos", async (req, res, next) => {
   }
 });
 
-router.delete("/:id/productos/:id_prod", (req, res, next) => {
+router.delete("/:idCart/productos/:id_prod", async (req, res, next) => {
   try {
-    const { id, id_prod } = req.params;
-    const rsp = service.deleteProductCart(id, id_prod);
+    const { idCart, id_prod } = req.params;
+    const rsp = await service.deleteProductCart(idCart, id_prod);
     res.status(200).json(rsp);
   } catch (error) {
     next(error);
