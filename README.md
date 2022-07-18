@@ -1,8 +1,8 @@
-# Primer Desafio Integrador de Back End
+# Desafio Integrador de Back End - Segunda Entrega
 
-Aplicación eCommerce Backend, que implementa un servidor de aplicación basado en la plataforma **Node.js** y el módulo **express**. El servidor implementará dos conjuntos de rutas agrupadas en routers, uno con la url base _'/productos'_ y el otro con _'/carrito'_. El puerto de escucha será el 8080 para desarrollo y process.env.PORT para producción en glitch.com
+Aplicación eCommerce Backend, que implementa un servidor de aplicación basado en la plataforma **Node.js** y el módulo **express**. El servidor implementará dos conjuntos de rutas agrupadas en routers, uno con la url base _'/productos'_ y el otro con _'/carrito'_. El puerto de escucha será el 8080 para desarrollo y process.env.PORT para producción en glitch.com(subida proximamente)
 
-Aspectos del entregable:
+## Aspectos del entregable:
 
 1. El router base _'/api/productos'_ implementará cuatro funcionalidades:
 
@@ -19,4 +19,13 @@ Aspectos del entregable:
    - ` POST: '/:id/productos'` - Para incorporar productos al carrito por su id de producto
    - ` DELETE: '/:id/productos/:id_prod'` - Eliminar un producto del carrito por su id de carrito y de producto
 
-3. Crear una variable booleana administrador, cuyo valor configuraremos más adelante con el sistema de _login_. Según su valor (true ó false) me permitirá alcanzar o no las rutas indicadas. En el caso de recibir un request a una ruta no permitida por el perfil, devolver un objeto de error. Ejemplo: { error : -1, descripcion: ruta 'x' método 'y' no autorizada }
+3. Realizar integracion respectiva a _base de datos_:
+
+   - conectar la ruta de _carrito_ a **MongoDB** por medio del servicio en la nube **Atlas** haciendo uso del ODM **mongoose**.
+   - conectar la ruta de _productos_ a **Postgres SQL** haciendo uso del ORM **Sequelize**
+
+## Como se usa
+
+- descargar el repositorio
+- conectar las respectivas base de datos con las credenciales que se dejan en este repositorio
+- utilizar alguna plataforma de API para probar la aplicacion
