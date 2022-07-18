@@ -11,10 +11,10 @@ router.post("/", async (req, res, next) => {
   }
 });
 
-router.delete("/:id", (req, res, next) => {
+router.delete("/:id", async (req, res, next) => {
   try {
     const { id } = req.params;
-    const resp = service.deleteById(id);
+    const resp = await service.deleteById(id);
     res.json(resp);
   } catch (error) {
     next(error);
